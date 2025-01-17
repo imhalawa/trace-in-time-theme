@@ -21,3 +21,21 @@
 {{ $mainJs = $mainJs | minify }}
 {{ end }}
 <script src="{{ $mainJs.RelPermalink }}"></script>
+
+{{/*  {{ $glightbox := resources.Get "js/glightbox.js" }}
+{{ if hugo.IsProduction }}
+{{ $glightbox = $glightbox | minify }}
+{{ end }}
+<script src="{{ $mainJs.RelPermalink }}"></script>
+
+{{ $swiper := resources.Get "js/swiper-bundle.js" }}
+{{ if hugo.IsProduction }}
+{{ $swiper = $swiper | minify }}
+{{ end }}
+<script src="{{ $mainJs.RelPermalink }}"></script>
+
+{{ $gallerySlider := resources.Get "js/gallery-slider.js" }}
+{{ if hugo.IsProduction }}
+{{ $gallerySlider = $gallerySlider | minify }}
+{{ end }}
+<script src="{{ $mainJs.RelPermalink }}"></script>  */}}

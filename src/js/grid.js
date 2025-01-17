@@ -1,7 +1,9 @@
 function initGrid() {
   document.querySelectorAll('.dream-grid').forEach((grid) => {
+    console.log("what?")
     const msnry = new Masonry(grid, {
       itemSelector: '.dream-column',
+      horizontalOrder:true,
     })
 
     if (grid.classList.contains('dream-grid-about')) {

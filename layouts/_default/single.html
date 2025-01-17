@@ -30,10 +30,10 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="lg:grid lg:grid-cols-4 gap-4 mt-4 px-4">
+<div class="lg:grid lg:grid-cols-8 gap-4 mt-4 px-4">
   <div class="hidden lg:block"></div>
 
-  <div class="lg:col-span-2">
+  <div class="lg:col-span-6">
     <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope
       itemtype="http://schema.org/Article">
       {{ template "_internal/schema.html" . }}
@@ -67,7 +67,7 @@
 
       <section id="dream-single-post-content" itemprop="articleBody">
         {{ if and .Params.Cover site.Params.showSummaryCoverInPost }}
-        <img src="{{ .Params.Cover }}" alt="{{ .Title }}" />
+        <img src="{{ .Params.Cover }}" alt="{{ .Title }}"/>
         {{ end }}
 
         {{ .Content | emojify }}

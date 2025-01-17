@@ -1,7 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import "gallery-slider";
+@import "tailwindcss";
+@plugin "daisyui";
 
 #dream-global-bg {
   position: fixed;
