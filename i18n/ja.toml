@@ -4,9 +4,6 @@ other = "Home"
 [backToHome]
 other = "Back to home"
 
-[flip]
-other = "Flip it!"
-
 [about]
 other = "About"
 

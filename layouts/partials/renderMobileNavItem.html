@@ -5,6 +5,13 @@
     {{ T "search" }}
   </a>
 </li>
+{{ else if and (eq . "about") site.Params.rss }}
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="{{ "about" | relLangURL }}" title="RSS">
+    <ion-icon name="information-circle"></ion-icon>
+    About
+  </a>
+</li>
 {{ else if and (eq . "rss") site.Params.rss }}
 <li>
   <a class="inline-flex items-center p-2 cursor-pointer" href="{{ "index.xml" | relLangURL }}" title="RSS">

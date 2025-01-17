@@ -4,9 +4,6 @@ other = "Home"
 [backToHome]
 other = "Torna alla home"
 
-[flip]
-other = "Flip it!"
-
 [about]
 other = "Chi siamo"
 

@@ -4,9 +4,6 @@ other = "Start"
 [backToHome]
 other = "Zurück zum Start"
 
-[flip]
-other = "Flip it!"
-
 [archives]
 other = "Archiv"
 
