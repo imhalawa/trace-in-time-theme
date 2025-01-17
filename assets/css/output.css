@@ -4108,8 +4108,8 @@ html {
 }
 
 @media (min-width: 1024px) {
-  .lg\:col-span-2 {
-    grid-column: span 2 / span 2;
+  .lg\:col-span-6 {
+    grid-column: span 6 / span 6;
   }
 
   .lg\:mt-12 {
@@ -4144,6 +4144,10 @@ html {
     flex-basis: 300px;
   }
 
+  .lg\:grid-cols-8 {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
   .lg\:flex-col {
     flex-direction: column;
   }
@@ -4164,10 +4168,6 @@ html {
 
   .xl\:w-1\/4 {
     width: 25%;
-  }
-
-  .xl\:grid-cols-8 {
-    grid-template-columns: repeat(8, minmax(0, 1fr));
   }
 }
 
