@@ -7,16 +7,30 @@
             {{ range $index, $page := sort (where .Pages "Params.draft" false) "Params.from" "asc" }}
             <li>
                 <hr class="{{ if $page.Params.present }}{{ else }}bg-primary {{ end }}" />
+                {{/*  Role Information  */}}
                 <div class="timeline-start">
                     <div class="text-2xl">{{ $page.Params.role }}</div>
-                    <div class="font-bold"><a href="{{$page.Params.company.url}}" class="link">{{
-                            $page.Params.company.name }}</a> - {{ $page.Params.location }}</div>
-                    <div class="font-mono italic">{{ $page.Params.from }} - {{ if $page.Params.present
-                        }}<b>Present</b>{{ else
-                        }}{{ $page.Params.to }}{{ end }}</div>
+                    <div class="flex justify-start  gap-4">
+                        <div class="flex items-center gap-2">
+                            <ion-icon name="business-outline" class="text-xl"></ion-icon>
+                            <a href="{{$page.Params.company.url}}" class="link">
+                                {{ $page.Params.company.name }}
+                            </a>
+                        </div>
+                        <div class="flex items-center">
+                            <ion-icon name="location-outline" class="text-xl"></ion-icon> {{ $page.Params.location }}
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <ion-icon name="calendar-outline"></ion-icon>
+                        <div class="font-mono italic">
+                            {{ $page.Params.from }} - {{ if $page.Params.present}}<b>Present</b>{{ else}}{{
+                            $page.Params.to }}{{ end }}
+                        </div>
+                    </div>
                     <div class="text-md"></div>
                 </div>
-
+                {{/*  Check mark  */}}
                 <div class="timeline-middle">
                     {{ if $page.Params.present}}
                     <ion-icon name="time"></ion-icon>
@@ -25,15 +39,18 @@
                     {{ end }}
                 </div>
 
-                <div class="timeline-end dark:border-base-content/60 prose dark:prose-invert">
-                    <span class="text-sm md:text-md lg:text-lg">
+                {{/*  Responsibilities  */}}
+                <div class="timeline-end dark:border-base-content/60 mb-6">
+                    <div class="text-sm md:text-md lg:text-lg prose dark:prose-invert">
                         {{ $page.Content }}
-                    </span>
+                    </div>
+                    {{/*  Skills  */}}
                     {{ if gt (len $page.Params.Skills) 0 }}
                     {{ range $page.Params.skills }}
-                    <div class="badge badge-accent badge-outline">{{ . }}</div>
+                    <div class="badge badge-default hover:badge-primary cursor-pointer">{{ . }}</div>
                     {{ end }}
                     {{ end }}
+                    {{/*  End of Skills  */}}
                 </div>
                 <hr class="bg-primary " />
             </li>

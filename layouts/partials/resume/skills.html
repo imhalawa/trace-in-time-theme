@@ -3,10 +3,9 @@
     <h2 class="text-3xl">{{.Self.Title}} </h2>
     <hr class="mt-2" />
     <div class="card-body p-0 pt-4">
-
         <div class="flex flex-wrap gap-2">
             {{ range .Self.Params.skills }}
-            <div class="badge badge-accent badge-outline">{{ . }}</div>
+            <div class="badge badge-default  hover:badge-warning cursor-pointer">{{ . }}</div>
             {{ end }}
         </div>
         {{ if gt (len .Self.Content) 0 }}

@@ -4,9 +4,17 @@
     <h2 class="text-3xl"> {{.Self.Params.title}} </h2>
     <hr class="mt-2" />
     <div class="card-body  p-0 pt-4">
-        <p class="font-serif">
+        <div class="prose dark:prose-invert text-sm md:text-md lg:text-lg">
             {{.Self.Content}}
-        </p>
+        </div>
+        {{ with .Self.Params.next }}
+        <div class="alert">
+            <ion-icon name="golf-outline" class="text-2xl" title="Long term goal"></ion-icon>
+            <div>
+                {{ . }}
+            </div>
+        </div>
+        {{ end }}
     </div>
 </div>
 {{/* End Of Summary */}}
