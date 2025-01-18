@@ -3,8 +3,14 @@
   relLangURL }}" title="{{ T " search" }}">
   <ion-icon class="group-hover:text-primary-content" name="search"></ion-icon>
 </a>
-{{ else if and (eq . "about") site.Params.rss }}
+{{ else if and (eq . "resume") site.Params.resume }}
   <div role="link" tabindex="0" class="text-sm font-semibold cursor-pointer hover:underline">
+    <a href="/resume">
+      {{- T "resume" -}}
+    </a>
+  </div>
+{{ else if and (eq . "about") site.Params.about }}
+  <div role="link" tabindex="1" class="text-sm font-semibold cursor-pointer hover:underline">
     <a href="/about">
       {{- T "about" -}}
     </a>

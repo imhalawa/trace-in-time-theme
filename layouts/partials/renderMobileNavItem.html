@@ -5,9 +5,16 @@
     {{ T "search" }}
   </a>
 </li>
-{{ else if and (eq . "about") site.Params.rss }}
+{{ else if and (eq . "resume") site.Params.resume }}
 <li>
-  <a class="inline-flex items-center p-2 cursor-pointer" href="{{ "about" | relLangURL }}" title="RSS">
+  <a class="inline-flex items-center p-2 cursor-pointer" href="{{ "resume" | relLangURL }}" title="Resume">
+    <ion-icon name="information-circle"></ion-icon>
+    Resume
+  </a>
+</li>
+{{ else if and (eq . "about") site.Params.about }}
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="{{ "about" | relLangURL }}" title="About">
     <ion-icon name="information-circle"></ion-icon>
     About
   </a>
