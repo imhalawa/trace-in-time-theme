@@ -8,6 +8,7 @@
   integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
   integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
 
 {{ $gridJs := resources.Get "js/grid.js" }}
 {{ if hugo.IsProduction }}
@@ -22,20 +23,8 @@
 {{ end }}
 <script src="{{ $mainJs.RelPermalink }}"></script>
 
-{{/*  {{ $glightbox := resources.Get "js/glightbox.js" }}
+{{ $lightboxJs := resources.Get "js/lightbox.js" }}
 {{ if hugo.IsProduction }}
-{{ $glightbox = $glightbox | minify }}
+{{ $lightboxJs = $lightboxJs | minify }}
 {{ end }}
-<script src="{{ $mainJs.RelPermalink }}"></script>
-
-{{ $swiper := resources.Get "js/swiper-bundle.js" }}
-{{ if hugo.IsProduction }}
-{{ $swiper = $swiper | minify }}
-{{ end }}
-<script src="{{ $mainJs.RelPermalink }}"></script>
-
-{{ $gallerySlider := resources.Get "js/gallery-slider.js" }}
-{{ if hugo.IsProduction }}
-{{ $gallerySlider = $gallerySlider | minify }}
-{{ end }}
-<script src="{{ $mainJs.RelPermalink }}"></script>  */}}
+<script src="{{ $lightboxJs.RelPermalink }}"></script>

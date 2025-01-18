@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("gbounceIn.css");
 
 #dream-global-bg {
   position: fixed;
