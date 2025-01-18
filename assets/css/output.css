@@ -4510,6 +4510,11 @@ html {
   background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity, 1)));
 }
 
+.dark\:bg-base-200:where(.dark, .dark *) {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity, 1)));
+}
+
 .\[\&_ion-icon\]\:text-lg ion-icon {
   font-size: 1.125rem;
   line-height: 1.75rem;
