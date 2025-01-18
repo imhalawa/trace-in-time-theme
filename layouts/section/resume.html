@@ -1,0 +1,32 @@
+{{ define "title" }}
+{{- .Title -}}
+{{ end }}
+
+{{ define "main"}}
+<div class="mt-8 lg:mt-12 px-4 w-full">
+    <div class="mx-auto prose dark:prose-invert">
+        <h1 class="text-6xl">
+            {{ default .Title (T "resume") }}
+        </h1>
+    </div>
+
+    <!-- Overview/Summary -->
+    {{ $summaryPage := where .Pages "Params.section" "summary" }}
+    {{ if gt (len $summaryPage) 0 }}
+    {{ partial "resume/summary.html" (dict "Self" (index $summaryPage 0)) }}
+    {{ end }}
+
+    <!-- Skills -->
+    {{ $skillsPage := where .Pages "Params.section" "skills" }}
+    {{ if gt (len $skillsPage) 0 }}
+    {{ partial "resume/skills.html" (dict "Self" (index $skillsPage 0)) }}
+    {{ end }}
+
+    <!-- Experience -->
+    {{ $experiencePages := where .Pages "Params.section" "experience" }}
+    {{ if gt (len $experiencePages) 0 }}
+    {{ partial "resume/experience.html" (dict "Pages" $experiencePages) }}
+    {{ end }}
+
+</div>
+{{ end }}

@@ -1,0 +1,35 @@
+{{/* Experience */}}
+<div class="max-w-[65ch] mx-auto mt-8 lg:mt-12">
+    <div class="card bg-base-100 shadow-xl p-4 m-2">
+        <h2 class="text-3xl"> Experience </h2>
+        <hr/>
+        <div class="card-body" style="padding: 0px !important;">
+            <ul class="timeline timeline-compact timeline-vertical mt-6">
+                {{ range $index, $page := sort (where .Pages "Params.draft" false) "Params.from" "asc" }}
+                <li>
+                    <hr class="{{ if $page.Params.present }}{{ else }}bg-primary {{ end }}" />
+                    <div class="timeline-start">
+                        <div class="text-2xl">{{ $page.Params.company }}</div>
+                        <div class="font-mono italic">{{ $page.Params.from }} - {{ if $page.Params.present
+                            }}<b>Present</b>{{ else
+                            }}{{ $page.Params.to }}{{ end }}</div>
+                        <div class="text-md">{{ $page.Params.location }}</div>
+                    </div>
+
+                    <div class="timeline-middle">
+                        <ion-icon name="time"></ion-icon>
+                    </div>
+
+                    <div class="timeline-end dark:border-base-content/60 prose dark:prose-invert lg:mt-4 xl:mt-6">
+                        <span class="text-sm md:text-md lg:text-lg">
+                            {{ $page.Content }}
+                        </span>
+                    </div>
+                    <hr class="bg-primary " />
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</div>
+{{/* End Of Experience */}}
