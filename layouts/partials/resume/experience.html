@@ -1,45 +1,44 @@
 {{/* Experience */}}
-<div class="max-w-[65ch] mx-auto mt-8 lg:mt-12">
-    <div class="card bg-base-100 shadow-xl p-4 m-2">
-        <h2 class="text-3xl"> Work Experience </h2>
-        <hr />
-        <div class="card-body" style="padding: 0px !important;">
-            <ul class="timeline timeline-compact timeline-vertical mt-6">
-                {{ range $index, $page := sort (where .Pages "Params.draft" false) "Params.from" "asc" }}
-                <li>
-                    <hr class="{{ if $page.Params.present }}{{ else }}bg-primary {{ end }}" />
-                    <div class="timeline-start">
-                        <div class="text-2xl">{{ $page.Params.role }}</div>
-                        <div class="font-bold"><a href="{{$page.Params.company.url}}" class="link">{{ $page.Params.company.name }}</a> - {{ $page.Params.location }}</div>
-                        <div class="font-mono italic">{{ $page.Params.from }} - {{ if $page.Params.present
-                            }}<b>Present</b>{{ else
-                            }}{{ $page.Params.to }}{{ end }}</div>
-                        <div class="text-md"></div>
-                    </div>
+<div class="card bg-base-100 shadow-xl p-4 m-2">
+    <h2 class="text-3xl"> Work Experience </h2>
+    <hr class="mt-2" />
+    <div class="card-body  p-0">
+        <ul class="timeline timeline-compact timeline-vertical mt-6">
+            {{ range $index, $page := sort (where .Pages "Params.draft" false) "Params.from" "asc" }}
+            <li>
+                <hr class="{{ if $page.Params.present }}{{ else }}bg-primary {{ end }}" />
+                <div class="timeline-start">
+                    <div class="text-2xl">{{ $page.Params.role }}</div>
+                    <div class="font-bold"><a href="{{$page.Params.company.url}}" class="link">{{
+                            $page.Params.company.name }}</a> - {{ $page.Params.location }}</div>
+                    <div class="font-mono italic">{{ $page.Params.from }} - {{ if $page.Params.present
+                        }}<b>Present</b>{{ else
+                        }}{{ $page.Params.to }}{{ end }}</div>
+                    <div class="text-md"></div>
+                </div>
 
-                    <div class="timeline-middle">
-                        {{ if $page.Params.present}}
-                        <ion-icon name="time"></ion-icon>
-                        {{ else}}
-                        <ion-icon name="checkmark-circle-outline" class="text-primary"></ion-icon>
-                        {{ end }}
-                    </div>
+                <div class="timeline-middle">
+                    {{ if $page.Params.present}}
+                    <ion-icon name="time"></ion-icon>
+                    {{ else}}
+                    <ion-icon name="checkmark-circle-outline" class="text-primary"></ion-icon>
+                    {{ end }}
+                </div>
 
-                    <div class="timeline-end dark:border-base-content/60 prose dark:prose-invert lg:mt-4 xl:mt-6">
-                        <span class="text-sm md:text-md lg:text-lg">
-                            {{ $page.Content }}
-                        </span>
-                        {{ if gt (len $page.Params.Skills) 0 }}
-                        {{ range $page.Params.skills }}
-                        <div class="badge badge-accent badge-outline">{{ . }}</div>
-                        {{ end }}
-                        {{ end }}
-                    </div>
-                    <hr class="bg-primary " />
-                </li>
-                {{ end }}
-            </ul>
-        </div>
+                <div class="timeline-end dark:border-base-content/60 prose dark:prose-invert">
+                    <span class="text-sm md:text-md lg:text-lg">
+                        {{ $page.Content }}
+                    </span>
+                    {{ if gt (len $page.Params.Skills) 0 }}
+                    {{ range $page.Params.skills }}
+                    <div class="badge badge-accent badge-outline">{{ . }}</div>
+                    {{ end }}
+                    {{ end }}
+                </div>
+                <hr class="bg-primary " />
+            </li>
+            {{ end }}
+        </ul>
     </div>
 </div>
 {{/* End Of Experience */}}

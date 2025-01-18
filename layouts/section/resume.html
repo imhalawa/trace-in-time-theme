@@ -3,30 +3,49 @@
 {{ end }}
 
 {{ define "main"}}
-<div class="mt-8 lg:mt-12 px-4 w-full">
-    <div class="mx-auto prose dark:prose-invert">
-        <h1 class="text-6xl">
-            {{ default .Title (T "resume") }}
+<div class="mt-8 lg:mt-12 px-4">
+    <div class="mx-auto">
+        <h1 class="text-5xl">
+            {{ default .Title (T "Résumé") }}
         </h1>
+        <hr class="m-4" />
     </div>
 
-    <!-- Overview/Summary -->
-    {{ $summaryPage := where .Pages "Params.section" "summary" }}
-    {{ if gt (len $summaryPage) 0 }}
-    {{ partial "resume/summary.html" (dict "Self" (index $summaryPage 0)) }}
-    {{ end }}
+    <div class="grid  xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
+        {{/* Left Column */}}
+        <div>
+            <!-- Contacts -->
+            {{ $contactPage := where .Pages "Params.section" "contact" }}
+            {{ if gt (len $contactPage) 0 }}
+            {{ partial "resume/contact.html" (dict "Self" (index $contactPage 0)) }}
+            {{ end }}
 
-    <!-- Skills -->
-    {{ $skillsPage := where .Pages "Params.section" "skills" }}
-    {{ if gt (len $skillsPage) 0 }}
-    {{ partial "resume/skills.html" (dict "Self" (index $skillsPage 0)) }}
-    {{ end }}
+            <!-- Overview/Summary -->
+            {{ $summaryPage := where .Pages "Params.section" "summary" }}
+            {{ if gt (len $summaryPage) 0 }}
+            {{ partial "resume/summary.html" (dict "Self" (index $summaryPage 0)) }}
+            {{ end }}
 
-    <!-- Experience -->
-    {{ $experiencePages := where .Pages "Params.section" "experience" }}
-    {{ if gt (len $experiencePages) 0 }}
-    {{ partial "resume/experience.html" (dict "Pages" $experiencePages) }}
-    {{ end }}
+            <!-- Skills -->
+            {{ $skillsPage := where .Pages "Params.section" "skills" }}
+            {{ if gt (len $skillsPage) 0 }}
+            {{ partial "resume/skills.html" (dict "Self" (index $skillsPage 0)) }}
+            {{ end }}
+        </div>
+        {{/* End of Left Column */}}
+
+        {{/* Right Column */}}
+        <div>
+            <!-- Experience -->
+            {{ $experiencePages := where .Pages "Params.section" "experience" }}
+            {{ if gt (len $experiencePages) 0 }}
+            {{ partial "resume/experience.html" (dict "Pages" $experiencePages) }}
+            {{ end }}
+        </div>
+        {{/* End of Right Column */}}
+    </div>
+
+
 
 </div>
 {{ end }}

@@ -1,0 +1,12 @@
+{{/* Skills */}}
+<div class="max-w-[65ch] mx-auto mt-4">
+
+            <div class="flex gap-2 p-0 justify-center">
+                {{range .Self.Params.Contacts}}
+                <a href="{{.url}}" title="{{.name}}" class="btn btn-circle btn-ghost btn-outline">
+                    <ion-icon name="{{.icon}}" class="text-3xl"></ion-icon>
+                </a>
+                {{end}}
+            </div>
+</div>
+{{/* End Of Skills */}}
