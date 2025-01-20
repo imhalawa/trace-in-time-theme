@@ -30,15 +30,21 @@
   {{ $imagePaths:= split .Name "/" }}
   {{ $imageAlt:= index $imagePaths (sub (len $imagePaths) 1)}}
 
-
-  <div class="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 p-1 dream-column">
+  <div class="w-full xs:w-1/2 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-0.5 xs:p-4 dream-column">
     <div
-      class="card card-compact rounded-btn bg-base-100 hover:bg-base-content/10 shadow-md dark:border dark:border-base-content/30">
-      <div class="card-bodyx" style="padding: 0;">
+      class="card rounded-btn bg-base-100 hover:bg-base-content/15 shadow-md dark:border dark:border-base-content/30">
+      <div class="card-body p-0">
         <a href="{{ $scratch.Get `image` }}" class="glightbox3" data-gallery="gallery">
           <img loading="{{ $loading }}" src="{{ $scratch.Get `image` }}" class="img my-0" alt="{{ $imageAlt }}"
             onerror="this.onerror='null';this.src='{{ $scratch.Get `imageFallback` }}'" />
         </a>
+        {{/* TODO: wanted to add a figure but this will require a massive amount of work to make a relationship between
+        an image and it's figure */}}
+        {{/* <div class="flex items-center justify-center">
+          <div class=" mx-6">
+            {{$imageAlt}}
+          </div>
+        </div> */}}
       </div>
     </div>
   </div>
